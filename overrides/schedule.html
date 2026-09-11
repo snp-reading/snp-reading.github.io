@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block content %}
+    {% include "partials/actions.html" %}
+    
+    <h1>Schedule for {{ page.title }}</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Speaker</th>
+                <th>Selected Text</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for session in page.meta.sessions %}
+            {% if session.note %}
+            <tr>
+                <td>{{session.date}}</td>
+                <td colspan="2"><em>{{session.note}}</em></td>
+            </tr>
+            {% else %}
+            <tr>
+                <td>{{session.date}}</td>
+                <td>
+                    {% if session.speaker and session.confirmed %}
+                    {{session.speaker}}
+                    {% else %}
+                    <a href="{{session.date}}" target="_blank" class="md-button">Nominate self</a>
+                    {% endif %}
+                </td>
+                <td>
+                    {% if session.title and session.url and session.confirmed %}
+                    <a href="{{session.url}}" target="_blank">{{session.title}}</a>
+                    {% endif %}
+                </td>
+            </tr>
+            {% endif %}
+            {% endfor %}
+        </tbody>
+    </table>
+
+    {% include "partials/tags.html" %}
+    {% include "partials/source-file.html" %}
+    {% include "partials/feedback.html" %}
+    {% include "partials/comments.html" %}
+{% endblock %}

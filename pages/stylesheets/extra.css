@@ -1,0 +1,43 @@
+.md-search,
+.md-header__source,
+.md-header__button[for="__search"],
+.md-header__topic:last-child {
+    display: none;
+}
+
+.md-header__topic:first-child {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.home-content {
+    @media screen and (min-width: 60em) {
+        margin-right: 12.5rem;
+    }
+
+    @media screen and (min-width: 76.2344em) {
+        margin-left: 12.5rem;
+    }
+}
+
+.lead {
+    font-size: 0.82rem;
+}
+
+.indent {
+    margin: 0 3rem;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    &.lighter-h {
+        font-weight: 500;
+    }
+}
+
+p:has(small:only-child) {
+    line-height: 1.5;
+}
+
+[data-md-type="toc"] .md-nav__item strong {
+    font-weight: normal;
+}

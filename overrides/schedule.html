@@ -24,14 +24,14 @@
             <tr>
                 <td>{{session.date}}</td>
                 <td>
-                    {% if session.speaker and session.confirmed %}
+                    {% if session.speaker %}
                     {{session.speaker}}
                     {% else %}
                     <a href="{{session.date}}" target="_blank" class="md-button">Nominate self</a>
                     {% endif %}
                 </td>
                 <td>
-                    {% if session.title and session.url and session.confirmed %}
+                    {% if session.title and session.url %}
                     <a href="{{session.url}}" target="_blank">{{session.title}}</a>
                     {% endif %}
                 </td>

@@ -15,24 +15,29 @@
         </thead>
         <tbody>
             {% for session in page.meta.sessions %}
-            {% if session.note %}
+            {% if session.note and not session.speaker %}
             <tr>
                 <td>{{session.date}}</td>
                 <td colspan="2"><em>{{session.note}}</em></td>
             </tr>
+            {% elif not session.speaker %}
+            <tr>
+                <td>{{session.date}}</td>
+                <td colspan="2">
+                    <a href="https://tally.so/r/0Q9pvB?session_date={{session.date}}&schedule={{page.meta.title}}" target="_blank" class="md-button">Nominate self</a>
+                </td>
+            </tr>
             {% else %}
             <tr>
                 <td>{{session.date}}</td>
-                <td>
-                    {% if session.speaker %}
-                    {{session.speaker}}
-                    {% else %}
-                    <a href="https://tally.so/r/0Q9pvB?session_date={{session.date}}&schedule={{page.meta.title}}" target="_blank" class="md-button">Nominate self</a>
-                    {% endif %}
-                </td>
+                <td>{{session.speaker}}</td>
                 <td>
                     {% if session.title and session.url %}
                     <a href="{{session.url}}" target="_blank">{{session.title}}</a>
+                    {% endif %}
+
+                    {% if session.note %}
+                    <p><em>{{session.note}}</em></p>
                     {% endif %}
                 </td>
             </tr>

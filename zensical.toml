@@ -13,7 +13,7 @@ copyright = "Copyright &copy; University of Surrey"
 nav = [
   { "Home" = "index.md" },
   { "Schedule" = [
-    "schedule/index.md",
+    "schedule/2026-27.md",
     "schedule/2025-26.md"
   ] },
   { "Literature Selection" = [
